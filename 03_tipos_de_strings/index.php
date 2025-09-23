@@ -20,27 +20,27 @@ $b = 'PHP';
 $single_quoted = 'php\u{1f418}'; 
 
 //ex:
-echo "$double_quoted\n";
+echo "$double_quoted<br>";
 
-echo "$single_quoted\n";
+echo "$single_quoted<br>";
 
 // Concatenation operator 
-echo "$a " . "$b" . "\n";// o ponto é o que liga as duas strings 
+echo "$a " . "$b" . "<br>";// o ponto é o que liga as duas strings 
 
 //interpretação de constantes 
 const ESTADO = "SP";
-echo "Moro em ESTADO\n"; //a interpretação do conteúdo em constantes não funciona
+echo "Moro em ESTADO<br>"; //a interpretação do conteúdo em constantes não funciona
 
 //usa-se concatenação:
-echo "Moro em " . ESTADO . "\n";
+echo "Moro em " . ESTADO . "<br>";
 
-echo "Hoje é dia " . date('d/m/Y') . "\n";
+echo "Hoje é dia " . date('d/m/Y') . "<br>";
 
 //Mostrando aspas no meio da string 
 $nome = "Anderson";
 $sobrenome = "Silva";
 
-echo "$nome \"The Spider\" $sobrenome\n"; // Sequencia de escape 
+echo "$nome \"The Spider\" $sobrenome<br>"; // Sequencia de escape 
 
 /*
 Sequencias de escape para aspas duplas:
@@ -55,7 +55,7 @@ Sequencias de escape para aspas duplas:
 $nome = "Alan";
 $sobrenome = "Neves";
 $apelido = "Padawan";
-echo "$nome \"$apelido\" $sobrenome\n";
+echo "$nome \"$apelido\" $sobrenome<br>";
 
 //Sintaxe Heredoc 
 $curso = "PHP";

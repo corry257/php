@@ -1,6 +1,6 @@
 <?php
     //Outras operações 
-    abs(); // valor absoluto o mesmo que módulo 
+    //abs() = valor absoluto o mesmo que módulo 
     $r = abs(200);
     echo "$r";
 

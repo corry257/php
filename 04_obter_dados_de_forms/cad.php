@@ -16,7 +16,7 @@
             $nome = $_GET["nome"] ?? "sem nome"; 
             $sobrenome = $_GET["sobrenome"] ?? "desconhecido";
 
-            echo"<p>É um grande prazer te conhecer $nome $sobrenome, este é o meu site." 
+            echo"<p>É um prazer te conhecer <strong>$nome $sobrenome</strong>, boas vindas ao meu site." 
         ?>
         <p><a href="javascript:history.go(-1)">Voltar para a pagina anterior</a></p>
     </main>

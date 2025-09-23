@@ -13,9 +13,9 @@
 	
 	const CURSO = "TI";
 	
-	echo "Muito prazer, meu nome é $nome $sobrenome e moro no " . PAIS . "\n"; 
+	echo "Muito prazer, meu nome é $nome $sobrenome e moro no " . PAIS . "<br>"; 
 
-	echo "Tenho $idade anos, peso $peso kg \n";
+	echo "Tenho $idade anos, peso $peso kg <br>";
 	
 	echo "Estou fazendo o curso de " . CURSO . " e ";
 	
@@ -34,8 +34,8 @@
 	*/
 	
 	//Para nomear métodos e atributos:
-	$nomeCompletoCliente = "Camel Case";
+	$camelCase = "Camel Case";
 	
 	//Para nomear constantes:
-	$telefone_contato_fornecedor = "Snake Case";
+	$snake_case = "Snake Case";
   

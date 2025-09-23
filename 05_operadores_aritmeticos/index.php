@@ -2,6 +2,8 @@
     $s = 2 + 2;
     echo $s; 
 
+    echo "<br>";
+
     $r = "2" + "2";
     echo $r;
 

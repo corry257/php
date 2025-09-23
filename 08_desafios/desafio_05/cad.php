@@ -13,16 +13,16 @@
     <main>
         <?php
             $valor = $_GET["valor"] ?? "sem valor"; 
-            echo"<p>Analisando o número $valor:";
 
-            $inteiro = $valor / 1;
+            echo"<p>Analisando o número <strong>" . number_format($valor, 3, ",", ".") . "</strong>";
 
-            $fracao = funcao($valor,1);
+            $inteiro = (int) $valor;
+            $fracao = $valor - $inteiro;
 
-            echo"<p>- A parte inteira do número é " . intdiv($inteiro) . "\n";
-            echo"<p>- A parte fracionária é $fracao\n";
+            echo"<ul><li>A parte inteira do número é <strong>" . number_format($inteiro, 0, ",", ".") . "</strong>";
+            echo"<li>A parte fracionária é <strong>" . number_format($fracao, 3, ",", ".") . "</strong></li></ul>"
         ?>
-        <p><a href="javascript:history.go(-1)">Voltar</a></p>
+        <p><button onclick="javascript:history.go(-1)">Voltar</button></p>
     </main>
 </body>
 </html>

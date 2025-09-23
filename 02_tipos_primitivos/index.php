@@ -6,7 +6,7 @@
 	/*Sequencia de letras, números e simbolos, sempre representadas entre aspas.*/
 	
 	//int ou integer: 
-	$idade = 34;
+	$idade = 30;
 	/*Um valor numérico inteiro, aquele que vem sem a parte decimal.*/
 	
 	//Float, Double ou Real:
@@ -41,6 +41,7 @@
 	#Teste de tipos primitivos 
 	$v= "Alan";
 	var_dump($v);//Imprime o tipo de variável
+	echo "<br>";
 	/*
 	essa função anterior deve imprimir: 
 		string(4) "Alan"
@@ -48,16 +49,17 @@
 	
 	// Pode-se imprimir mais de uma variavel ao mesmo tempo:
 	var_dump($sobrenome, $idade, $peso, $casado);  
+	echo "<br>";
 	/* 
 	essa função anterior deve imprimir: 
-		string(4) "Alan"
 		string(5) "Neves"
-		int(34)
+		int(30)
 		float(85.9)
 		bool(true)
 	*/
 
 	var_dump($vet);
+	echo "<br>";
 	/* 
 	essa função anterior deve imprimir: 	
 		array(4) {
