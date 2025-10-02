@@ -1,9 +1,9 @@
 <?php
 	//Introdução A PHP 
-	
+  
 	//Variaveis e constantes: 
-	$nome = "Alan";
-	$sobrenome = "Neves";
+	$nome = "Alan Neves";
+	$sobrenome = "Ribeiro";
 	const PAIS = "Brasil";
 	
 	//Exercício:
