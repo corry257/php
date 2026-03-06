@@ -20,7 +20,7 @@ Lançado em 1998 com o código todo reescrito por Andi e Zeev o nome personal ho
 
 ainda em 1998 dois artistas foram muito importante para a linguagem sendo responsaveis pela cara do projeto são Colin Viebrock e Vicent Pontier, Colin foi responsavel pelo desenho da logo do php (imagem-1) e Vicent criou o mascote do php o simpatico elefante (imagem-2).
 
-![alt text](imagem-1.png) ![alt text](imagem-2.png)
+![alt text](imagem-1_pequena.png) ![alt text](imagem-2_pequena.png)
 
 ### Criação da Zend
 Em 1999 zeev e Andi criaram uma empresa que até hoje é uma grande dezenvolvedora da linguagem php, o nome da empresa é a junção dos nomes dos dois, *ZE*ev + A*ND*i = *ZEND* toda a infraestrutura basica é construida por eles e foi denomina zend engin. 
