@@ -75,24 +75,96 @@ Na tecnologia server-side, o cliente faz a requisição ao servidor, que process
 - **Back-end:** Desenvolvedores que solucionam problemas e programam do lado do servidor (server-side), sem contato direto com o usuário final.
 - **Full Stack:** Profissionais que atuam tanto no lado do cliente quanto no servidor, resolvendo problemas em ambas as camadas.
 
----
+### Servidor
 
-## Principais versões do PHP
+Um **servidor** é um computador ou sistema que fornece recursos, dados, serviços ou programas para outros computadores, chamados de clientes, através de uma rede. Em desenvolvimento web, o servidor é responsável por receber requisições HTTP, processar códigos (como PHP) e retornar páginas HTML, imagens ou outros conteúdos.
 
-| Versão | Data de lançamento | Destaques |
-|--------|-------------------|-----------|
-| **PHP 1.0** | 1995 | PHP Tools, contador de visitantes, interpretador de formulários |
-| **PHP 2.0** | 1996 | PHP/FI, suporte a bancos de dados, cookies e funções |
-| **PHP 3.0** | 1998 | Primeira versão com nome atual, código reescrito |
-| **PHP 4.0** | 2000 | Zend Engine 1.0, maior desempenho |
-| **PHP 5.0** | 2004 | Zend Engine 2.0, suporte a POO, PDO |
-| **PHP 7.0** | 2015 | Desempenho significativamente melhorado, tipagem escalar |
-| **PHP 8.0** | 2020 | JIT compilation, atributos, match expression |
+#### Como transformar seu PC em um servidor?
+Qualquer computador pode se tornar um servidor web desde que tenha um **software servidor HTTP** instalado e configurado. Para desenvolvimento local, é comum transformar o próprio PC em um servidor para testar aplicações antes de publicá-las na internet.
 
----
+#### Principais servidores web
+- **Apache:** O servidor web mais popular do mundo. Open source, modular e altamente configurável. Criado em 1995, é mantido pela Apache Software Foundation. Integra-se perfeitamente com PHP e é o servidor padrão em soluções como XAMPP e WAMP.
+- **Nginx:** (pronuncia-se "engine-x") Servidor web de alta performance, criado em 2004 por Igor Sysoev. Destaca-se por sua arquitetura orientada a eventos, consumindo menos memória e lidando melhor com muitas conexões simultâneas que o Apache. Muito usado em sites de alto tráfego.
 
-## Curiosidades
-- O PHP é usado por aproximadamente **80% dos sites** que utilizam uma linguagem server-side.
-- Grandes plataformas como **Facebook, Wikipedia e WordPress** utilizam PHP.
-- O mascote do PHP é um elefante azul chamado **ElePHPant**.
-- A versão 6.0 nunca foi lançada devido a problemas com suporte a Unicode.
+### Banco de dados
+
+Um **banco de dados** é um sistema organizado para armazenar, gerenciar e recuperar informações de forma eficiente. Em aplicações web dinâmicas, o banco de dados guarda todo o conteúdo mutável: usuários, posts, produtos, comentários, etc.
+
+#### Para que serve?
+- Persistência de dados (informações que permanecem mesmo após o usuário sair do site)
+- Organização estruturada das informações
+- Consultas rápidas e complexas
+- Controle de concorrência (múltiplos acessos simultâneos)
+- Segurança e integridade dos dados
+
+#### Como é implementado num sistema?
+O PHP se comunica com o banco de dados através de extensões como **PDO (PHP Data Objects)** ou **MySQLi**. O fluxo básico é:
+1. Aplicação PHP conecta-se ao banco
+2. Envia uma consulta (query) em linguagem SQL
+3. Banco processa e retorna os dados solicitados
+4. PHP utiliza esses dados para gerar páginas dinâmicas
+
+#### Principais bancos de dados usados com PHP
+- **MySQL:** Sistema de gerenciamento de banco de dados relacional mais popular para web. Open source, rápido, confiável e amplamente documentado. Adquirido pela Oracle em 2010, mas mantém versão comunitária livre (GPL).
+- **MariaDB:** Fork do MySQL criado pelos desenvolvedores originais após a aquisição pela Oracle. Criado por Michael "Monty" Widenius em 2009. Mantém 100% compatibilidade com MySQL, mas adiciona melhorias de performance e novos recursos. É o banco padrão em muitas distribuições Linux e no XAMPP atual.
+
+## XAMPP
+
+**XAMPP** é um pacote de software livre e multiplataforma que reúne em uma única instalação todos os programas necessários para criar um ambiente de desenvolvimento web local. O nome é um acrônimo para:
+
+- **X:** Multiplataforma (funciona em Windows, Linux e Mac)
+- **A:** Apache (servidor web)
+- **M:** MariaDB/MySQL (banco de dados)
+- **P:** PHP (linguagem de programação)
+- **P:** Perl (linguagem de programação)
+
+#### Por que usar XAMPP?
+Ele **condensa** a instalação e configuração de todos esses programas num só lugar, eliminando a complexidade de configurar cada componente separadamente. Com um único instalador, você tem um ambiente web completo rodando em minutos, ideal para:
+
+- Aprender PHP e desenvolvimento web
+- Desenvolver sites localmente antes de publicar
+- Testar aplicações em ambiente controlado
+- Demonstrar projetos sem necessidade de internet
+
+### Download do XAMPP
+
+O XAMPP está disponível para os principais sistemas operacionais. Escolha a versão adequada para seu computador:
+
+- **Windows:** Instalador executável (.exe) com interface gráfica.
+- **Linux:** Pacotes para distribuições baseadas em Debian/Ubuntu (.run) ou arquivos compactados.
+- **macOS:** Instalador específico para sistemas da Apple (.dmg).
+
+Download em: [apachefriends.org/download.html](https://www.apachefriends.org/download.html)
+
+### Configurações iniciais
+
+Após instalar e iniciar o XAMPP, você precisa ativar os serviços essenciais:
+
+1. Abra o **XAMPP Control Panel**.
+2. Clique em **Start** para o Apache (servidor web).
+3. Clique em **Start** para o MySQL (banco de dados).
+
+Em seguida, siga o passo a passo abaixo:
+
+1. Abra o navegador e digite `localhost` na barra de endereços.
+2. Clique em **phpinfo()** para observar as configurações do PHP instaladas em sua máquina.
+3. Procure pela coluna **Loaded Configuration File**. Este campo mostrará onde está localizado seu arquivo de configuração do PHP (`php.ini`) no servidor Apache.
+4. Após localizar o arquivo `php.ini`, abra-o em um editor de texto e verifique/altere os seguintes campos:
+
+   ```ini
+   display_errors = On
+   log_errors = On
+   memory_limit = 512M
+   max_execution_time = 120
+   file_uploads = On
+   upload_max_filesize = 100M
+   post_max_size = 100M
+
+Observação: valores como memory_limit podem precisar da unidade (M para Megabytes). Ajuste conforme necessário.
+
+    Salve o arquivo e reinicie o Apache pelo XAMPP Control Panel para aplicar as alterações.
+
+*Caso tenha dificuldade em instalar ou configurar o XAMPP em sua máquina, veja estes vídeo-tutoriais:* 
+
+   Downloads: [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)
+   configurações: [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)
