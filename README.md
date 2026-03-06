@@ -153,18 +153,31 @@ Em seguida, siga o passo a passo abaixo:
 
    ```ini
    display_errors = On
+   ```
+   ```ini
    log_errors = On
+   ```
+   ```ini
    memory_limit = 512M
+   ```
+   ```ini
    max_execution_time = 120
+   ```
+   ```ini
    file_uploads = On
+   ```
+   ```ini
    upload_max_filesize = 100M
+   ```
+   ```ini
    post_max_size = 100M
+   ```
 
-Observação: valores como memory_limit podem precisar da unidade (M para Megabytes). Ajuste conforme necessário.
+*Observação: valores como memory_limit podem precisar da unidade (M para Megabytes). Ajuste conforme necessário.*
 
-    Salve o arquivo e reinicie o Apache pelo XAMPP Control Panel para aplicar as alterações.
+5. Salve o arquivo e reinicie o Apache pelo XAMPP Control Panel para aplicar as alterações.
 
 *Caso tenha dificuldade em instalar ou configurar o XAMPP em sua máquina, veja estes vídeo-tutoriais:* 
 
-   Downloads: [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)
-   configurações: [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)
+   **Downloads:** [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)   
+   **configurações:** [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)   
