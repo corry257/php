@@ -56,17 +56,17 @@ O PHP se utiliza de tecnologias como HTML, CSS e JavaScript, que são tecnologia
 ### Client-side
 Na tecnologia client-side, o computador faz a requisição ao servidor, e o servidor envia os arquivos para serem processados no PC do cliente.
 
-Cliente → [Requisição] → Internet → Servidor
-Cliente ← [Resposta] ← Internet ← Servidor
-Cliente processa os arquivos localmente
+   Cliente → [Requisição] → Internet → Servidor   
+   Cliente ← [Resposta] ← Internet ← Servidor   
+   Cliente processa os arquivos localmente
 
 
 
 ### Server-side
 Na tecnologia server-side, o cliente faz a requisição ao servidor, que processa os arquivos e envia tudo já processado.
 
-Cliente → [Requisição] → Internet → Servidor (processa os arquivos)
-Cliente ← [Resposta (já processada)] ← Internet ← Servidor
+   Cliente → [Requisição] → Internet → Servidor (processa os arquivos)   
+   Cliente ← [Resposta (já processada)] ← Internet ← Servidor   
 
 
 
