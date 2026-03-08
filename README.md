@@ -305,63 +305,56 @@ Constantes são valores que não podem ser alterados durante a execução. São 
 O PHP é uma linguagem de tipagem dinâmica, ou seja, você não precisa declarar o tipo da variável; ele é inferido pelo valor atribuído. No entanto, existem vários tipos de dados.
 
 ### Tipos escalares
-São tipos básicos que representam um único valor.
+São tipos básicos que representam um único valor.   
 
-    string: Sequência de caracteres (texto). Deve estar entre aspas simples ou duplas.
-    php
-
+**`string:`** Sequência de caracteres (texto). Deve estar entre aspas simples ou duplas.
+```php
     $nome = "Maria";
     $sobrenome = 'Silva';
-
-    int (integer): Números inteiros (sem parte decimal).
-    php
-
+```
+**`int (integer):`** Números inteiros (sem parte decimal).
+```php
     $idade = 30;
     $ano = 2024;
-
-    float (double ou real): Números com ponto flutuante (decimais).
-    php
-
+```
+**`float (double ou real):`** Números com ponto flutuante (decimais).
+```php
     $preco = 19.90;
     $altura = 1.75;
-
-    bool (boolean): Valores lógicos: true ou false.
-    php
-
+```
+**`bool (boolean):`** Valores lógicos: true ou false.
+```php
     $aprovado = true;
     $ativo = false;
-
+```
 ### Tipos compostos
-
 Agrupam múltiplos valores.
 
-    array: Estrutura que armazena uma coleção de valores.
-    php
-
+**`array:`** Estrutura que armazena uma coleção de valores.
+```php
     $cores = array("vermelho", "azul", "verde");
     // ou sintaxe curta
     $numeros = [10, 20, 30];
     $mix = [1, "texto", true, 3.14];
-
-    object: Representa uma instância de uma classe.
-    php
-
+```
+**`object:`** Representa uma instância de uma classe.
+```php
     class Pessoa {
         public $nome;
         public $idade;
     }
     $p = new Pessoa();
     $p->nome = "Carlos";
+```
 
 ### Tipos especiais
+**`null:`** Representa uma variável sem valor.   
 
-    null: Representa uma variável sem valor.
+**`resource:`** Referência a recursos externos (arquivos, conexões de banco).   
 
-    resource: Referência a recursos externos (arquivos, conexões de banco).
+**`callable:`** Funções ou métodos que podem ser chamados.   
 
-    callable: Funções ou métodos que podem ser chamados.
-
-    mixed: Indica que a variável pode ser de qualquer tipo (usado em documentação).
+**`mixed:`** Indica que a variável pode ser de qualquer tipo (usado em documentação).
 
 ### Verificando tipos
 O PHP oferece a função var_dump() que exibe informações sobre uma variável: tipo e valor.
@@ -381,57 +374,80 @@ Strings podem ser definidas de quatro formas diferentes: aspas duplas, aspas sim
 ### Aspas duplas (" ")
 Permitem a interpretação de variáveis e caracteres de escape (como \n para nova linha, \t para tabulação, \$ para cifrão literal, \\ para barra invertida e \u{} para Unicode).
 
-$curso = "PHP";
-echo "Estou estudando $curso"; // Exibe: Estou estudando PHP
-echo "Coração: \u{1F418}"; // Exibe: Coração: 🐘 (elefante)
+```php
+    $linguagem = "PHP";
+    echo "Estou estudando $curso"; // Exibe: Estou estudando PHP
+    echo "\u{2764} \u{1F418}"; // Exibe: um coração e um elefante
+```
 
 ### Aspas simples (' ')
 Não interpretam variáveis nem a maioria dos escapes. Apenas \' e \\ são reconhecidos.
-php
 
-$curso = 'PHP';
-echo 'Estou estudando $curso'; // Exibe: Estou estudando $curso
-echo 'Coração: \u{1F418}'; // Exibe: Coração: \u{1F418}
+```php
+    $curso = 'PHP';
+    echo 'Estou estudando $curso'; // Exibe: Estou estudando $curso
+    echo 'Coração: \u{1F418}'; // Exibe: Coração: \u{1F418}
+```
 
 ### Heredoc
-
 Permite escrever strings multilinha com interpretação de variáveis e escapes. A sintaxe é <<<IDENTIFICADOR e o identificador deve ser repetido no fechamento (sem espaços).
-php
 
-$nome = "João";
-$texto = <<<TEXTO
-Olá, $nome!
-Bem-vindo ao curso de PHP.
-Espero que você goste. \u{1F604}
-TEXTO;
-echo $texto;
+```php
+    $nome = "João";
+    $texto = <<<TEXTO
+    Olá, $nome!
+    Bem-vindo ao curso de PHP.
+    Espero que você goste. \u{1F604}
+    TEXTO;
+    echo $texto;
+```
 
 ### Nowdoc
-
 Semelhante ao Heredoc, mas não interpreta variáveis nem escapes (exceto para o próprio delimitador). Usa o identificador entre aspas simples.
-php
 
-$nome = "João";
-$texto = <<<'TEXTO'
-Olá, $nome!
-Bem-vindo ao curso de PHP.
-Espero que você goste. \u{1F604}
-TEXTO;
-echo $texto; // Exibe literalmente $nome e \u{1F604}
+```php
+    $nome = "João";
+    $texto = <<<'TEXTO'
+    Olá, $nome!
+    Bem-vindo ao curso de PHP.
+    Espero que você goste. \u{1F604}
+    TEXTO;
+    echo $texto; // Exibe literalmente $nome e \u{1F604}
+```
 
 ### Concatenação de strings
-
 Para unir strings, usamos o operador ponto (.).
-php
-
-$nome = "Maria";
-$sobrenome = "Oliveira";
-$nomeCompleto = $nome . " " . $sobrenome; // "Maria Oliveira"
-echo "Olá, " . $nomeCompleto . "!";
+```php
+    $nome = "Maria";
+    $sobrenome = "Oliveira";
+    $nomeCompleto = $nome . " " . $sobrenome; // "Maria Oliveira"
+    echo "Olá, " . $nomeCompleto . "!";
+```
 
 ### Exibindo aspas dentro da string
-
 Quando precisamos incluir aspas dentro de uma string, usamos a barra invertida para escapá-las.
-php
 
+```php
 echo "Ele disse: \"Olá, mundo!\"";
+```
+## Obtendo dados de formulários
+Um formulário é usado para o usuario final digitar os dados de uma variavel, este formulário precisa ter o method que é o método de envio do furmulario e a action que é a localização para onde os dados serão enviados alémdisso não pode faltar o name que é o nome do elemento e o value que é o valor que a variavel receberá 
+
+```html
+fazer um formulário que funcione com nome e sobrenome  que ao digitar o nome e o sobrenome responda Olá $nome $sobrenome
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header>
+            <h1>Apresente-se</h1>
+        </header>
+        <section>
+            <form action="cad.php" method="get">
+                <label for="nome">Nome </label>
+                <input type="text" name="nome" id="idnome">
+                <label for="sobrenome">Sobrenome </label>
+                <input type="text" name="sobrenome" id="idsobrenome">
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </body>
+```
+
