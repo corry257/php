@@ -213,14 +213,14 @@ Exemplo de estrutura básica HTML:
 ### Inserindo código PHP no HTML
 
 Para incluir código PHP dentro de um arquivo .php, você precisa usar as tags PHP. O servidor interpreta tudo que está dentro dessas tags e o resultado é inserido no local correspondente.
-Tags PHP disponíveis
 
-    Supertag (recomendada): <?php ... ?> – é a forma mais comum e portável, funciona em todas as configurações.
+#### Tags PHP disponíveis:
+***Supertag (recomendada):* <?php ... ?> –** é a forma mais comum e portável, funciona em todas as configurações.   
 
-    Short open tag: <? ... ?> – precisa estar habilitada no arquivo php.ini (short_open_tag = On). Não é recomendada para garantir compatibilidade.
+***Short open tag:* <? ... ?> –** precisa estar habilitada no arquivo php.ini (short_open_tag = On). Não é recomendada para garantir compatibilidade.
 
-    Short tag de echo: <?= ... ?> – é um atalho para <?php echo ... ?>. Muito usado para exibir valores diretamente.
-
+***Short tag de echo:* <?= ... ?> –** é um atalho para <?php echo ... ?>. Muito usado para exibir valores diretamente.   
+   
 Exemplo:
 ```php
 
@@ -232,7 +232,7 @@ Exemplo:
 </head>
 <body>
     <h1><?php echo "Olá, mundo!"; ?></h1>
-    <p>A data de hoje é <?= date('d/m/Y'); ?></p>
+    <p>Hoje é <?= date('d/m/Y'); ?></p>
 </body>
 </html>
 ```
@@ -241,77 +241,70 @@ Exemplo:
 Para programar em PHP, é essencial ter noções de lógica de programação: entender o que é um algoritmo, variáveis, estruturas de controle, etc. Vamos começar com o básico.
 
 ### Algoritmo
-
 Um algoritmo é uma sequência finita de passos que visa resolver um problema. Em programação, escrevemos algoritmos por meio de código.
 Imprimindo mensagens na tela
 
-O PHP oferece dois comandos principais para exibir texto:
+O PHP oferece dois comandos principais para exibir texto:   
+   
+`echo` – é o mais utilizado, pode receber múltiplos parâmetros.   
 
-    echo – é o mais utilizado, pode receber múltiplos parâmetros.
-
-    print – também exibe texto, mas retorna 1 e aceita apenas um argumento.
-
-Ambos podem ser usados com ou sem parênteses.
-
+`print` – também exibe texto, mas retorna 1 e aceita apenas um argumento.   
+   
+Ambos podem ser usados com ou sem parênteses.  
+   
 Exemplo:
-php
-
-<?php
-    echo "Olá, mundo!";
-    print "Olá, mundo!";
-?>
-
-    Atenção: Todo comando em PHP deve terminar com ponto e vírgula ;. Isso indica o fim da instrução.
+```php
+        echo "Olá, mundo!";
+        print "Olá, mundo!";
+```
+*Atenção: Todo comando em PHP deve terminar com ponto e vírgula ;. Isso indica o fim da instrução.*
 
 ### Comentários
-
 Comentários são trechos de texto ignorados pelo interpretador. São úteis para documentar o código.
-Comentários de uma linha
-php
 
-// Este é um comentário de uma linha
-# Este também é um comentário de uma linha (estilo Unix)
+#### Comentários de uma linha
+```php
+    // Este é um comentário de uma linha
+    # Este também é um comentário de uma linha (estilo Unix)
+```
 
-Comentários de múltiplas linhas
-php
-
-/*
-   Este é um comentário
-   que pode ocupar várias linhas
-*/
+#### Comentários de múltiplas linhas
+```php
+    /*
+    Este é um comentário
+    que pode ocupar várias linhas
+    */
+```
 
 ## Variáveis e constantes
 ### Variáveis
 
-Em PHP, variáveis são representadas pelo símbolo $ seguido do nome. O nome da variável deve começar com letra ou sublinhado, e pode conter letras, números e sublinhados. É sensível a maiúsculas e minúsculas.
+Em PHP, variáveis são representadas pelo símbolo $ seguido do nome. O nome da variável deve começar com letra ou sublinhado, e pode conter letras, números e sublinhados. É sensível a maiúsculas e minúsculas.   
 
 Por convenção, usamos camelCase para nomear variáveis: a primeira palavra começa com minúscula e as próximas com maiúscula (ex.: $nomeCompleto).
-php
-
-<?php
+```php
     $nome = "João";
     $idade = 25;
     $casado = false;
-?>
+```
 
-As variáveis podem ter seus valores alterados ao longo do script.
+*As variáveis podem ter seus valores alterados ao longo do script.*
 
 ### Constantes
 
 Constantes são valores que não podem ser alterados durante a execução. São definidas com a palavra-chave const (a partir do PHP 7) ou com a função define(). Por convenção, usamos nomes em maiúsculas com snake_case (ex.: NOME_DA_CONSTANTE).
-php
 
-<?php
+```php
     const NOME_DA_CONSTANTE = "valor fixo";
     // ou
     define('OUTRA_CONSTANTE', 123);
-?>
+```
 
 ## Tipos de dados
 
 O PHP é uma linguagem de tipagem dinâmica, ou seja, você não precisa declarar o tipo da variável; ele é inferido pelo valor atribuído. No entanto, existem vários tipos de dados.
-Tipos escalares
 
+### Tipos escalares
 São tipos básicos que representam um único valor.
 
     string: Sequência de caracteres (texto). Deve estar entre aspas simples ou duplas.
@@ -371,33 +364,28 @@ Agrupam múltiplos valores.
     mixed: Indica que a variável pode ser de qualquer tipo (usado em documentação).
 
 ### Verificando tipos
-
 O PHP oferece a função var_dump() que exibe informações sobre uma variável: tipo e valor.
-php
 
-<?php
+```php
 $idade = 30;
 var_dump($idade); // int(30)
 
 $nome = "João";
 var_dump($nome); // string(4) "João"
-?>
+```
 
 ## Strings em PHP
 
 Strings podem ser definidas de quatro formas diferentes: aspas duplas, aspas simples, Heredoc e Nowdoc.
 
 ### Aspas duplas (" ")
-
 Permitem a interpretação de variáveis e caracteres de escape (como \n para nova linha, \t para tabulação, \$ para cifrão literal, \\ para barra invertida e \u{} para Unicode).
-php
 
 $curso = "PHP";
 echo "Estou estudando $curso"; // Exibe: Estou estudando PHP
 echo "Coração: \u{1F418}"; // Exibe: Coração: 🐘 (elefante)
 
 ### Aspas simples (' ')
-
 Não interpretam variáveis nem a maioria dos escapes. Apenas \' e \\ são reconhecidos.
 php
 
