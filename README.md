@@ -152,25 +152,25 @@ Em seguida, siga o passo a passo abaixo:
 4. Após localizar o arquivo `php.ini`, abra-o em um editor de texto e verifique/altere os seguintes campos:
 
    ```ini
-   display_errors = On
+   display_errors=On
    ```
    ```ini
-   log_errors = On
+   log_errors=On
    ```
    ```ini
-   memory_limit = 512M
+   memory_limit=512M
    ```
    ```ini
-   max_execution_time = 120
+   max_execution_time=120
    ```
    ```ini
-   file_uploads = On
+   file_uploads=On
    ```
    ```ini
-   upload_max_filesize = 100M
+   upload_max_filesize=100M
    ```
    ```ini
-   post_max_size = 100M
+   post_max_size=100M
    ```
 
 *Observação: valores como memory_limit podem precisar da unidade (M para Megabytes). Ajuste conforme necessário.*
@@ -181,3 +181,269 @@ Em seguida, siga o passo a passo abaixo:
 
    **Downloads:** [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)   
    **configurações:** [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)   
+
+## Estrutura básica de um arquivo PHP
+
+Um arquivo PHP geralmente contém uma mistura de HTML e código PHP. O PHP é processado no servidor e o resultado (geralmente HTML puro) é enviado ao navegador. Por isso, a estrutura básica de um arquivo PHP começa com a estrutura HTML padrão.
+
+### Estrutura HTML
+
+Todo documento HTML deve ter a declaração `<!DOCTYPE html>` e a tag `<html>` como elemento raiz. Dentro dela, temos duas seções principais: `<head>` e `<body>`.
+
+- `<!DOCTYPE html>`: Indica ao navegador que o documento é HTML5.
+- `<html lang="pt-BR">`: Define o idioma da página (importante para acessibilidade e SEO).
+- `<head>`: Contém metadados, título da página, links para CSS, scripts, etc. Não é visível na página.
+- `<body>`: Contém todo o conteúdo visível da página: textos, imagens, formulários, etc.
+
+Exemplo de estrutura básica HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Página PHP</title>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Este é um parágrafo.</p>
+</body>
+</html>
+```
+### Inserindo código PHP no HTML
+
+Para incluir código PHP dentro de um arquivo .php, você precisa usar as tags PHP. O servidor interpreta tudo que está dentro dessas tags e o resultado é inserido no local correspondente.
+Tags PHP disponíveis
+
+    Supertag (recomendada): <?php ... ?> – é a forma mais comum e portável, funciona em todas as configurações.
+
+    Short open tag: <? ... ?> – precisa estar habilitada no arquivo php.ini (short_open_tag = On). Não é recomendada para garantir compatibilidade.
+
+    Short tag de echo: <?= ... ?> – é um atalho para <?php echo ... ?>. Muito usado para exibir valores diretamente.
+
+Exemplo:
+```php
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo PHP</title>
+</head>
+<body>
+    <h1><?php echo "Olá, mundo!"; ?></h1>
+    <p>A data de hoje é <?= date('d/m/Y'); ?></p>
+</body>
+</html>
+```
+## Primeiros passos com PHP
+
+Para programar em PHP, é essencial ter noções de lógica de programação: entender o que é um algoritmo, variáveis, estruturas de controle, etc. Vamos começar com o básico.
+
+### Algoritmo
+
+Um algoritmo é uma sequência finita de passos que visa resolver um problema. Em programação, escrevemos algoritmos por meio de código.
+Imprimindo mensagens na tela
+
+O PHP oferece dois comandos principais para exibir texto:
+
+    echo – é o mais utilizado, pode receber múltiplos parâmetros.
+
+    print – também exibe texto, mas retorna 1 e aceita apenas um argumento.
+
+Ambos podem ser usados com ou sem parênteses.
+
+Exemplo:
+php
+
+<?php
+    echo "Olá, mundo!";
+    print "Olá, mundo!";
+?>
+
+    Atenção: Todo comando em PHP deve terminar com ponto e vírgula ;. Isso indica o fim da instrução.
+
+### Comentários
+
+Comentários são trechos de texto ignorados pelo interpretador. São úteis para documentar o código.
+Comentários de uma linha
+php
+
+// Este é um comentário de uma linha
+# Este também é um comentário de uma linha (estilo Unix)
+
+Comentários de múltiplas linhas
+php
+
+/*
+   Este é um comentário
+   que pode ocupar várias linhas
+*/
+
+## Variáveis e constantes
+### Variáveis
+
+Em PHP, variáveis são representadas pelo símbolo $ seguido do nome. O nome da variável deve começar com letra ou sublinhado, e pode conter letras, números e sublinhados. É sensível a maiúsculas e minúsculas.
+
+Por convenção, usamos camelCase para nomear variáveis: a primeira palavra começa com minúscula e as próximas com maiúscula (ex.: $nomeCompleto).
+php
+
+<?php
+    $nome = "João";
+    $idade = 25;
+    $casado = false;
+?>
+
+As variáveis podem ter seus valores alterados ao longo do script.
+
+### Constantes
+
+Constantes são valores que não podem ser alterados durante a execução. São definidas com a palavra-chave const (a partir do PHP 7) ou com a função define(). Por convenção, usamos nomes em maiúsculas com snake_case (ex.: NOME_DA_CONSTANTE).
+php
+
+<?php
+    const NOME_DA_CONSTANTE = "valor fixo";
+    // ou
+    define('OUTRA_CONSTANTE', 123);
+?>
+
+## Tipos de dados
+
+O PHP é uma linguagem de tipagem dinâmica, ou seja, você não precisa declarar o tipo da variável; ele é inferido pelo valor atribuído. No entanto, existem vários tipos de dados.
+Tipos escalares
+
+São tipos básicos que representam um único valor.
+
+    string: Sequência de caracteres (texto). Deve estar entre aspas simples ou duplas.
+    php
+
+    $nome = "Maria";
+    $sobrenome = 'Silva';
+
+    int (integer): Números inteiros (sem parte decimal).
+    php
+
+    $idade = 30;
+    $ano = 2024;
+
+    float (double ou real): Números com ponto flutuante (decimais).
+    php
+
+    $preco = 19.90;
+    $altura = 1.75;
+
+    bool (boolean): Valores lógicos: true ou false.
+    php
+
+    $aprovado = true;
+    $ativo = false;
+
+### Tipos compostos
+
+Agrupam múltiplos valores.
+
+    array: Estrutura que armazena uma coleção de valores.
+    php
+
+    $cores = array("vermelho", "azul", "verde");
+    // ou sintaxe curta
+    $numeros = [10, 20, 30];
+    $mix = [1, "texto", true, 3.14];
+
+    object: Representa uma instância de uma classe.
+    php
+
+    class Pessoa {
+        public $nome;
+        public $idade;
+    }
+    $p = new Pessoa();
+    $p->nome = "Carlos";
+
+### Tipos especiais
+
+    null: Representa uma variável sem valor.
+
+    resource: Referência a recursos externos (arquivos, conexões de banco).
+
+    callable: Funções ou métodos que podem ser chamados.
+
+    mixed: Indica que a variável pode ser de qualquer tipo (usado em documentação).
+
+### Verificando tipos
+
+O PHP oferece a função var_dump() que exibe informações sobre uma variável: tipo e valor.
+php
+
+<?php
+$idade = 30;
+var_dump($idade); // int(30)
+
+$nome = "João";
+var_dump($nome); // string(4) "João"
+?>
+
+## Strings em PHP
+
+Strings podem ser definidas de quatro formas diferentes: aspas duplas, aspas simples, Heredoc e Nowdoc.
+
+### Aspas duplas (" ")
+
+Permitem a interpretação de variáveis e caracteres de escape (como \n para nova linha, \t para tabulação, \$ para cifrão literal, \\ para barra invertida e \u{} para Unicode).
+php
+
+$curso = "PHP";
+echo "Estou estudando $curso"; // Exibe: Estou estudando PHP
+echo "Coração: \u{1F418}"; // Exibe: Coração: 🐘 (elefante)
+
+### Aspas simples (' ')
+
+Não interpretam variáveis nem a maioria dos escapes. Apenas \' e \\ são reconhecidos.
+php
+
+$curso = 'PHP';
+echo 'Estou estudando $curso'; // Exibe: Estou estudando $curso
+echo 'Coração: \u{1F418}'; // Exibe: Coração: \u{1F418}
+
+### Heredoc
+
+Permite escrever strings multilinha com interpretação de variáveis e escapes. A sintaxe é <<<IDENTIFICADOR e o identificador deve ser repetido no fechamento (sem espaços).
+php
+
+$nome = "João";
+$texto = <<<TEXTO
+Olá, $nome!
+Bem-vindo ao curso de PHP.
+Espero que você goste. \u{1F604}
+TEXTO;
+echo $texto;
+
+### Nowdoc
+
+Semelhante ao Heredoc, mas não interpreta variáveis nem escapes (exceto para o próprio delimitador). Usa o identificador entre aspas simples.
+php
+
+$nome = "João";
+$texto = <<<'TEXTO'
+Olá, $nome!
+Bem-vindo ao curso de PHP.
+Espero que você goste. \u{1F604}
+TEXTO;
+echo $texto; // Exibe literalmente $nome e \u{1F604}
+
+### Concatenação de strings
+
+Para unir strings, usamos o operador ponto (.).
+php
+
+$nome = "Maria";
+$sobrenome = "Oliveira";
+$nomeCompleto = $nome . " " . $sobrenome; // "Maria Oliveira"
+echo "Olá, " . $nomeCompleto . "!";
+
+### Exibindo aspas dentro da string
+
+Quando precisamos incluir aspas dentro de uma string, usamos a barra invertida para escapá-las.
+php
+
+echo "Ele disse: \"Olá, mundo!\"";
