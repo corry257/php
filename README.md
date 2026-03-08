@@ -433,7 +433,68 @@ echo "Ele disse: \"Olá, mundo!\"";
 ## Obtendo dados de formulários
 Um formulário é usado para o usuario final digitar os dados de uma variavel, este formulário precisa ter o method que é o método de envio do furmulario e a action que é a localização para onde os dados serão enviados alémdisso não pode faltar o name que é o nome do elemento e o value que é o valor que a variavel receberá 
 
+### Formulário html
+É preciso criar dois arquivos o index e um outro arquivo que aqui chamaremos de cad.php, o arquivo index ficará assim: 
+
+index.php:
 ```html
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Interação com formulários</title>
+        <link rel="stylesheet" href="../css/style.css">
+
+    </head>
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header>
+            <h1>Apresente-se</h1>
+        </header>
+        <section>
+            <form action="cad.php" method="get">
+                <label for="nome">Nome </label>
+                <input type="text" name="nome" id="idnome">
+                <label for="sobrenome">Sobrenome </label>
+                <input type="text" name="sobrenome" id="idsobrenome">
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </body>
+</html>
+```
+
+cad.php:
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Resultado do processamento</h1>
+    </header>
+    <main>
+        <?php
+            // $_REQUEST é a Junção das super globais $_GET, $_POST e $_COOKIES 
+            $nome = $_GET["nome"] ?? "sem nome"; 
+            $sobrenome = $_GET["sobrenome"] ?? "desconhecido";
+
+            echo"<p>É um prazer te conhecer <strong>$nome $sobrenome</strong>, boas vindas ao meu site." 
+        ?>
+        <p><a href="javascript:history.go(-1)">Voltar para a pagina anterior</a></p>
+    </main>
+</body>
+</html>
+```
+
+Abaixo como o formulário deve aparece para os usuários 
+
 fazer um formulário que funcione com nome e sobrenome  que ao digitar o nome e o sobrenome responda Olá $nome $sobrenome
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
         <header>
@@ -449,5 +510,8 @@ fazer um formulário que funcione com nome e sobrenome  que ao digitar o nome e 
             </form>
         </section>
     </body>
-```
+    desse jeito acima não aparece o o formulário 
+
+
+
 
