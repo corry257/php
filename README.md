@@ -510,8 +510,6 @@ fazer um formulário que funcione com nome e sobrenome  que ao digitar o nome e 
             </form>
         </section>
     </body>
-    desse jeito acima não aparece o o formulário 
-
 
 
 
