@@ -152,25 +152,25 @@ Em seguida, siga o passo a passo abaixo:
 4. Após localizar o arquivo `php.ini`, abra-o em um editor de texto e verifique/altere os seguintes campos:
 
    ```ini
-   display_errors = On
+   display_errors=On
    ```
    ```ini
-   log_errors = On
+   log_errors=On
    ```
    ```ini
-   memory_limit = 512M
+   memory_limit=512M
    ```
    ```ini
-   max_execution_time = 120
+   max_execution_time=120
    ```
    ```ini
-   file_uploads = On
+   file_uploads=On
    ```
    ```ini
-   upload_max_filesize = 100M
+   upload_max_filesize=100M
    ```
    ```ini
-   post_max_size = 100M
+   post_max_size=100M
    ```
 
 *Observação: valores como memory_limit podem precisar da unidade (M para Megabytes). Ajuste conforme necessário.*
@@ -181,3 +181,5 @@ Em seguida, siga o passo a passo abaixo:
 
    **Downloads:** [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)   
    **configurações:** [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)   
+
+   continuação...
