@@ -181,3 +181,337 @@ Em seguida, siga o passo a passo abaixo:
 
    **Downloads:** [Windows](www.youtube.com), [Linux](youtube.com), [MacOs](www.youtube.com)   
    **configurações:** [Windows](https://www.youtube.com/watch?v=H9kO0gVSLlo&list=PL0N5TAOhX5E9eJ9Ix6YUIgEw3lNmaIEE9&index=4), [Linux](youtube.com), [MacOs](www.youtube.com)   
+
+---
+
+## Estrutura básica de um arquivo PHP
+
+Um arquivo PHP geralmente contém uma mistura de HTML e código PHP. O PHP é processado no servidor e o resultado (geralmente HTML puro) é enviado ao navegador. Por isso, a estrutura básica de um arquivo PHP começa com a estrutura HTML padrão.
+
+### Estrutura HTML
+
+Todo documento HTML deve ter a declaração `<!DOCTYPE html>` e a tag `<html>` como elemento raiz. Dentro dela, temos duas seções principais: `<head>` e `<body>`.
+
+- `<!DOCTYPE html>`: Indica ao navegador que o documento é HTML5.
+- `<html lang="pt-BR">`: Define o idioma da página (importante para acessibilidade e SEO).
+- `<head>`: Contém metadados, título da página, links para CSS, scripts, etc. Não é visível na página.
+- `<body>`: Contém todo o conteúdo visível da página: textos, imagens, formulários, etc.
+
+Exemplo de estrutura básica HTML:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Página PHP</title>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Este é um parágrafo.</p>
+</body>
+</html>
+```
+### Inserindo código PHP no HTML
+
+Para incluir código PHP dentro de um arquivo .php, você precisa usar as tags PHP. O servidor interpreta tudo que está dentro dessas tags e o resultado é inserido no local correspondente.
+
+#### Tags PHP disponíveis:
+***Supertag (recomendada):* <?php ... ?> –** é a forma mais comum e portável, funciona em todas as configurações.   
+
+***Short open tag:* <? ... ?> –** precisa estar habilitada no arquivo php.ini (short_open_tag = On). Não é recomendada para garantir compatibilidade.
+
+***Short tag de echo:* <?= ... ?> –** é um atalho para <?php echo ... ?>. Muito usado para exibir valores diretamente.   
+   
+Exemplo:
+```php
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo PHP</title>
+</head>
+<body>
+    <h1><?php echo "Olá, mundo!"; ?></h1>
+    <p>Hoje é <?= date('d/m/Y'); ?></p>
+</body>
+</html>
+```
+## Primeiros passos com PHP
+
+Para programar em PHP, é essencial ter noções de lógica de programação: entender o que é um algoritmo, variáveis, estruturas de controle, etc. Vamos começar com o básico.
+
+### Algoritmo
+Um algoritmo é uma sequência finita de passos que visa resolver um problema. Em programação, escrevemos algoritmos por meio de código.
+Imprimindo mensagens na tela
+
+O PHP oferece dois comandos principais para exibir texto:   
+   
+`echo` – é o mais utilizado, pode receber múltiplos parâmetros.   
+
+`print` – também exibe texto, mas retorna 1 e aceita apenas um argumento.   
+   
+Ambos podem ser usados com ou sem parênteses.  
+   
+Exemplo:
+```php
+        echo "Olá, mundo!";
+        print "Olá, mundo!";
+```
+*Atenção: Todo comando em PHP deve terminar com ponto e vírgula ;. Isso indica o fim da instrução.*
+
+### Comentários
+Comentários são trechos de texto ignorados pelo interpretador. São úteis para documentar o código.
+
+#### Comentários de uma linha
+```php
+    // Este é um comentário de uma linha
+    # Este também é um comentário de uma linha (estilo Unix)
+```
+
+#### Comentários de múltiplas linhas
+```php
+    /*
+    Este é um comentário
+    que pode ocupar várias linhas
+    */
+```
+
+## Variáveis e constantes
+### Variáveis
+
+Em PHP, variáveis são representadas pelo símbolo $ seguido do nome. O nome da variável deve começar com letra ou sublinhado, e pode conter letras, números e sublinhados. É sensível a maiúsculas e minúsculas.   
+
+Por convenção, usamos camelCase para nomear variáveis: a primeira palavra começa com minúscula e as próximas com maiúscula (ex.: $nomeCompleto).
+```php
+    $nome = "João";
+    $idade = 25;
+    $casado = false;
+```
+
+*As variáveis podem ter seus valores alterados ao longo do script.*
+
+### Constantes
+
+Constantes são valores que não podem ser alterados durante a execução. São definidas com a palavra-chave const (a partir do PHP 7) ou com a função define(). Por convenção, usamos nomes em maiúsculas com snake_case (ex.: NOME_DA_CONSTANTE).
+
+```php
+    const NOME_DA_CONSTANTE = "valor fixo";
+    // ou
+    define('OUTRA_CONSTANTE', 123);
+```
+
+## Tipos de dados
+
+O PHP é uma linguagem de tipagem dinâmica, ou seja, você não precisa declarar o tipo da variável; ele é inferido pelo valor atribuído. No entanto, existem vários tipos de dados.
+
+### Tipos escalares
+São tipos básicos que representam um único valor.   
+
+**`string:`** Sequência de caracteres (texto). Deve estar entre aspas simples ou duplas.
+```php
+    $nome = "Maria";
+    $sobrenome = 'Silva';
+```
+**`int (integer):`** Números inteiros (sem parte decimal).
+```php
+    $idade = 30;
+    $ano = 2024;
+```
+**`float (double ou real):`** Números com ponto flutuante (decimais).
+```php
+    $preco = 19.90;
+    $altura = 1.75;
+```
+**`bool (boolean):`** Valores lógicos: true ou false.
+```php
+    $aprovado = true;
+    $ativo = false;
+```
+### Tipos compostos
+Agrupam múltiplos valores.
+
+**`array:`** Estrutura que armazena uma coleção de valores.
+```php
+    $cores = array("vermelho", "azul", "verde");
+    // ou sintaxe curta
+    $numeros = [10, 20, 30];
+    $mix = [1, "texto", true, 3.14];
+```
+**`object:`** Representa uma instância de uma classe.
+```php
+    class Pessoa {
+        public $nome;
+        public $idade;
+    }
+    $p = new Pessoa();
+    $p->nome = "Carlos";
+```
+
+### Tipos especiais
+**`null:`** Representa uma variável sem valor.   
+
+**`resource:`** Referência a recursos externos (arquivos, conexões de banco).   
+
+**`callable:`** Funções ou métodos que podem ser chamados.   
+
+**`mixed:`** Indica que a variável pode ser de qualquer tipo (usado em documentação).
+
+### Verificando tipos
+O PHP oferece a função var_dump() que exibe informações sobre uma variável: tipo e valor.
+
+```php
+$idade = 30;
+var_dump($idade); // int(30)
+
+$nome = "João";
+var_dump($nome); // string(4) "João"
+```
+
+## Strings em PHP
+
+Strings podem ser definidas de quatro formas diferentes: aspas duplas, aspas simples, Heredoc e Nowdoc.
+
+### Aspas duplas (" ")
+Permitem a interpretação de variáveis e caracteres de escape (como \n para nova linha, \t para tabulação, \$ para cifrão literal, \\ para barra invertida e \u{} para Unicode).
+
+```php
+    $linguagem = "PHP";
+    echo "Estou estudando $curso"; // Exibe: Estou estudando PHP
+    echo "\u{2764} \u{1F418}"; // Exibe: um coração e um elefante
+```
+
+### Aspas simples (' ')
+Não interpretam variáveis nem a maioria dos escapes. Apenas \' e \\ são reconhecidos.
+
+```php
+    $curso = 'PHP';
+    echo 'Estou estudando $curso'; // Exibe: Estou estudando $curso
+    echo 'Coração: \u{1F418}'; // Exibe: Coração: \u{1F418}
+```
+
+### Heredoc
+Permite escrever strings multilinha com interpretação de variáveis e escapes. A sintaxe é <<<IDENTIFICADOR e o identificador deve ser repetido no fechamento (sem espaços).
+
+```php
+    $nome = "João";
+    $texto = <<<TEXTO
+    Olá, $nome!
+    Bem-vindo ao curso de PHP.
+    Espero que você goste. \u{1F604}
+    TEXTO;
+    echo $texto;
+```
+
+### Nowdoc
+Semelhante ao Heredoc, mas não interpreta variáveis nem escapes (exceto para o próprio delimitador). Usa o identificador entre aspas simples.
+
+```php
+    $nome = "João";
+    $texto = <<<'TEXTO'
+    Olá, $nome!
+    Bem-vindo ao curso de PHP.
+    Espero que você goste. \u{1F604}
+    TEXTO;
+    echo $texto; // Exibe literalmente $nome e \u{1F604}
+```
+
+### Concatenação de strings
+Para unir strings, usamos o operador ponto (.).
+```php
+    $nome = "Maria";
+    $sobrenome = "Oliveira";
+    $nomeCompleto = $nome . " " . $sobrenome; // "Maria Oliveira"
+    echo "Olá, " . $nomeCompleto . "!";
+```
+
+### Exibindo aspas dentro da string
+Quando precisamos incluir aspas dentro de uma string, usamos a barra invertida para escapá-las.
+
+```php
+echo "Ele disse: \"Olá, mundo!\"";
+```
+## Obtendo dados de formulários
+Um formulário é usado para o usuario final digitar os dados de uma variavel, este formulário precisa ter o method que é o método de envio do furmulario e a action que é a localização para onde os dados serão enviados alémdisso não pode faltar o name que é o nome do elemento e o value que é o valor que a variavel receberá 
+
+### Formulário html
+É preciso criar dois arquivos o index e um outro arquivo que aqui chamaremos de cad.php, o arquivo index ficará assim: 
+
+index.php:
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Interação com formulários</title>
+        <link rel="stylesheet" href="../css/style.css">
+
+    </head>
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header>
+            <h1>Apresente-se</h1>
+        </header>
+        <section>
+            <form action="cad.php" method="get">
+                <label for="nome">Nome </label>
+                <input type="text" name="nome" id="idnome">
+                <label for="sobrenome">Sobrenome </label>
+                <input type="text" name="sobrenome" id="idsobrenome">
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </body>
+</html>
+```
+
+cad.php:
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Resultado do processamento</h1>
+    </header>
+    <main>
+        <?php
+            // $_REQUEST é a Junção das super globais $_GET, $_POST e $_COOKIES 
+            $nome = $_GET["nome"] ?? "sem nome"; 
+            $sobrenome = $_GET["sobrenome"] ?? "desconhecido";
+
+            echo"<p>É um prazer te conhecer <strong>$nome $sobrenome</strong>, boas vindas ao meu site." 
+        ?>
+        <p><a href="javascript:history.go(-1)">Voltar para a pagina anterior</a></p>
+    </main>
+</body>
+</html>
+```
+
+Abaixo como o formulário deve aparece para os usuários 
+
+fazer um formulário que funcione com nome e sobrenome  que ao digitar o nome e o sobrenome responda Olá $nome $sobrenome
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <header>
+            <h1>Apresente-se</h1>
+        </header>
+        <section>
+            <form action="cad.php" method="get">
+                <label for="nome">Nome </label>
+                <input type="text" name="nome" id="idnome">
+                <label for="sobrenome">Sobrenome </label>
+                <input type="text" name="sobrenome" id="idsobrenome">
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </body>
+    desse jeito acima não aparece o o formulário 
+
+
