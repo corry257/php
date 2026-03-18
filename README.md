@@ -1263,17 +1263,30 @@ formulario.html (ou .php):
     <header>
         <h1>Apresente-se</h1>
     </header>
-    
+
     <section>
         <form action="processa.php" method="GET">
             <label for="nome">Nome: </label>
-            <input type="text" name="nome" id="nome" required>
+            <input type="text" name="nome" id="nome" placeholder="Digite seu nome" required>
             <br><br>
-            
+
             <label for="sobrenome">Sobrenome: </label>
-            <input type="text" name="sobrenome" id="sobrenome" required>
+            <input type="text" name="sobrenome" id="sobrenome" placeholder="Digite seu sobrenome" required>
             <br><br>
-            
+
+            <label for="email">E-mail: </label>
+            <input type="email" name="email" id="email" placeholder="exemplo@gmail.com" required>
+            <br><br>
+
+            <label for="pais">País: </label>
+            <select name="pais" id="pais">
+                <option value="Brasil" selected>Brasil</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Outro">Outro</option>
+            </select>
+            <br><br>
+
             <input type="submit" value="Enviar">
         </form>
     </section>
@@ -1293,21 +1306,24 @@ processa.php (processamento):
     <header>
         <h1>Resultado do processamento</h1>
     </header>
-    
+
     <main>
         <?php
-            // $_REQUEST é a junção das superglobais $_GET, $_POST e $_COOKIES
             // Usando operador de coalescência nula (??) para valores padrão
-            $nome = $_GET["nome"] ?? "não informado";
+            $nome     = $_GET["nome"]     ?? "não informado";
             $sobrenome = $_GET["sobrenome"] ?? "não informado";
-            
-            echo "<p>É um prazer te conhecer, <strong>$nome $sobrenome</strong>! Bem-vindo ao meu site.</p>";
+            $email    = $_GET["email"]    ?? "não informado";
+            $pais     = $_GET["pais"]     ?? "não informado";
+
+            echo "<p>É um prazer te conhecer, <strong>$nome $sobrenome</strong>!</p>";
+            echo "<p>Seu e-mail é <strong>$email</strong> e você é do <strong>$pais</strong>.</p>";
+            echo "<p>Bem-vindo ao meu site.</p>";
         ?>
-        
+
         <p><a href="javascript:history.go(-1)">← Voltar para o formulário</a></p>
-        
+
         <hr>
-        
+
         <h3>Debug (para desenvolvimento):</h3>
         <pre>
 <?php
@@ -1321,16 +1337,7 @@ processa.php (processamento):
 ```
 
 Abaixo como o formulário deve aparece para os usuários:
-<fieldset style="border: 2px solid #ccc; padding: 20px; width: 300px; border-radius: 8px;">
-    <legend>Exemplo de formulário</legend>
-    <label for="exemplo_nome">Nome: </label>
-    <input type="text" id="exemplo_nome" placeholder="Digite seu nome" style="width: 100%; margin-bottom: 10px;">
-    <br>
-    <label for="exemplo_sobrenome">Sobrenome: </label>
-    <input type="text" id="exemplo_sobrenome" placeholder="Digite seu sobrenome" style="width: 100%; margin-bottom: 10px;">
-    <br>
-    <input type="submit" value="Enviar" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
-</fieldset>
+![Exemplo de formulário](form.png)
 
 
 
