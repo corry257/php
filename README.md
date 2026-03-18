@@ -1222,7 +1222,7 @@ Para raiz cubica e outras raizes usa-se a potência:
 ?>
 ```
 
-## Obtendo dados de formulários
+# Obtendo dados de formulários
 Um formulário HTML permite que o usuário final envie dados para o servidor. O formulário precisa ter:
 
 - *`method:` Método de envio (GET ou POST)*
@@ -1233,14 +1233,14 @@ Um formulário HTML permite que o usuário final envie dados para o servidor. O 
 
 - *`value:` Valor do campo (pode ser predefinido ou digitado pelo usuário)*
 
-### Métodos de envio
+## Métodos de envio
 - *`GET: Dados são enviados pela URL (visíveis). Ideal para buscas e navegação.
 
 - *`POST: Dados são enviados no corpo da requisição (ocultos). Ideal para formulários com dados sensíveis.
 
 - *`REQUEST: Junção de GET, POST e COOKIES.
 
-### Superglobais
+## Superglobais
 O PHP disponibiliza arrays especiais para acessar dados de formulários:
 
 - *`$_GET: Dados enviados via método GET
@@ -1249,7 +1249,7 @@ O PHP disponibiliza arrays especiais para acessar dados de formulários:
 
 - *`$_REQUEST: Dados de GET, POST e COOKIES combinados
 
-### Exemplo prático: formulário de apresentação
+## Exemplo prático: formulário de apresentação
 
 formulario.html (ou .php):
 ```html
@@ -1336,7 +1336,8 @@ processa.php (processamento):
 </html>
 ```
 
-Abaixo como o formulário deve aparece para os usuários:
+*Abaixo como o formulário deve aparecer para os usuários:*   
+   
 ![Exemplo de formulário](form.png)
 
 
