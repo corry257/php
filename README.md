@@ -1281,7 +1281,7 @@ formulario.html (ou .php):
 </html>
 ```
 
-<html>    
+   
 <body>    
     <section>
         <h2>Visualização do formulário</h2>
@@ -1304,7 +1304,7 @@ formulario.html (ou .php):
         </div>
     </section>
 </body>
-</html>
+
 
 processa.php (processamento):
 ```html
@@ -1344,6 +1344,17 @@ processa.php (processamento):
 </body>
 </html>
 ```
+
+Abaixo como o formulário deve aparece para os usuários:
+<form>
+    <label for="exemplo_nome">Nome: </label>
+    <input type="text" id="exemplo_nome" placeholder="Digite seu nome">
+    <br><br>
+    <label for="exemplo_sobrenome">Sobrenome: </label>
+    <input type="text" id="exemplo_sobrenome" placeholder="Digite seu sobrenome">
+    <br><br>
+    <input type="submit" value="Enviar">
+</form>
 
 
 
