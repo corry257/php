@@ -1281,31 +1281,6 @@ formulario.html (ou .php):
 </html>
 ```
 
-   
-<body>    
-    <section>
-        <h2>Visualização do formulário</h2>
-        <p>O formulário acima aparecerá para o usuário assim:</p>
-        
-        <!-- Simulação visual do formulário -->
-        <div style="border: 1px solid #ccc; padding: 20px; max-width: 400px;">
-            <form>
-                <label for="exemplo">Nome: </label>
-                <input type="text" id="exemplo" value="João" disabled>
-                <br><br>
-                
-                <label for="exemplo2">Sobrenome: </label>
-                <input type="text" id="exemplo2" value="Silva" disabled>
-                <br><br>
-                
-                <input type="submit" value="Enviar" disabled>
-            </form>
-            <p style="color: #666; font-size: 0.9em;">*Campos preenchidos apenas para ilustração</p>
-        </div>
-    </section>
-</body>
-
-
 processa.php (processamento):
 ```html
 <!DOCTYPE html>
@@ -1346,15 +1321,16 @@ processa.php (processamento):
 ```
 
 Abaixo como o formulário deve aparece para os usuários:
-<form>
+<fieldset style="border: 2px solid #ccc; padding: 20px; width: 300px; border-radius: 8px;">
+    <legend>Exemplo de formulário</legend>
     <label for="exemplo_nome">Nome: </label>
-    <input type="text" id="exemplo_nome" placeholder="Digite seu nome">
-    <br><br>
+    <input type="text" id="exemplo_nome" placeholder="Digite seu nome" style="width: 100%; margin-bottom: 10px;">
+    <br>
     <label for="exemplo_sobrenome">Sobrenome: </label>
-    <input type="text" id="exemplo_sobrenome" placeholder="Digite seu sobrenome">
-    <br><br>
-    <input type="submit" value="Enviar">
-</form>
+    <input type="text" id="exemplo_sobrenome" placeholder="Digite seu sobrenome" style="width: 100%; margin-bottom: 10px;">
+    <br>
+    <input type="submit" value="Enviar" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+</fieldset>
 
 
 
