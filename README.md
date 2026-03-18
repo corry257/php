@@ -539,71 +539,6 @@ ex:
    ?>
 ```
 
-## Operadores aritméticos 
-não sei se serão necessarios, depois dou uma olhada 
-
-## Operadores lógicos 
-Os operadores lógicos são interdisciplinares, presentes na filosofia, matemática e programação. Em PHP, eles permitem combinar ou negar condições, retornando valores booleanos (true ou false).
-
-### operador lógico E `(&& ou and)`
-Retorna true apenas se ambas as condições forem verdadeiras.
-
-```php
-   <?php
-      $idade = 25;
-      $possuiCarteira = true;
-      
-      // Usando &&
-      if ($idade >= 18 && $possuiCarteira) {
-         echo "Pode dirigir";
-      } else {
-         echo "Não pode dirigir";
-      }
-      
-      // Usando and (menor precedência)
-      $resultado = ($idade >= 18 and $possuiCarteira);
-      var_dump($resultado); // bool(true)
-   ?>
-```
-
-### Operador lógico OU `(|| ou or)`
-Retorna true se pelo menos uma das condições for verdadeira.
-
-```php
-   <?php
-      $dinheiro = 50;
-      $cartao = true;
-      
-      // Usando ||
-      if ($dinheiro >= 30 || $cartao) {
-         echo "Pode comprar o ingresso";
-      } else {
-         echo "Não pode comprar";
-      }
-      
-      // Usando or (menor precedência)
-      $resultado = ($dinheiro >= 30 or $cartao);
-      var_dump($resultado); // bool(true)
-   ?>
-```
-
-### Operador lógico de NEGAÇÃO `(!)`
-Inverte o valor lógico de uma expressão. Se for true, vira false; se for false, vira true.
-
-```php
-   <?php
-      $ativo = false;
-      
-      if (!$ativo) {
-         echo "Usuário inativo"; // Esta mensagem será exibida
-      }
-      
-      $chovendo = true;
-      $naoChovendo = !$chovendo; // false
-      var_dump($naoChovendo); // bool(false)
-   ?>
-```
-
 ## Estrutura de controle
 Estruturas de controle permitem que seu script tome decisões e execute blocos de código baseados em condições ou repita ações múltiplas vezes.
 
@@ -611,7 +546,7 @@ Estruturas de controle permitem que seu script tome decisões e execute blocos d
 Permitem executar diferentes blocos de código baseados em condições.
 
 #### if 
-falar do if e demonstrar
+Executa um bloco de código caso a condição seja verdadeira.
 
 ```php
 <?php
@@ -778,6 +713,70 @@ Pula a iteração atual e vai para a próxima.
     }
     // Resultado: 1 2 4 5
 ?>
+```
+
+---
+
+## Operadores lógicos 
+Os operadores lógicos são interdisciplinares, presentes na filosofia, matemática e programação. Em PHP, eles permitem combinar ou negar condições, retornando valores booleanos (true ou false).
+
+### operador lógico E `(&& ou and)`
+Retorna true apenas se ambas as condições forem verdadeiras.
+
+```php
+   <?php
+      $idade = 25;
+      $possuiCarteira = true;
+      
+      // Usando &&
+      if ($idade >= 18 && $possuiCarteira) {
+         echo "Pode dirigir";
+      } else {
+         echo "Não pode dirigir";
+      }
+      
+      // Usando and (menor precedência)
+      $resultado = ($idade >= 18 and $possuiCarteira);
+      var_dump($resultado); // bool(true)
+   ?>
+```
+
+### Operador lógico OU `(|| ou or)`
+Retorna true se pelo menos uma das condições for verdadeira.
+
+```php
+   <?php
+      $dinheiro = 50;
+      $cartao = true;
+      
+      // Usando ||
+      if ($dinheiro >= 30 || $cartao) {
+         echo "Pode comprar o ingresso";
+      } else {
+         echo "Não pode comprar";
+      }
+      
+      // Usando or (menor precedência)
+      $resultado = ($dinheiro >= 30 or $cartao);
+      var_dump($resultado); // bool(true)
+   ?>
+```
+
+### Operador lógico de NEGAÇÃO `(!)`
+Inverte o valor lógico de uma expressão. Se for true, vira false; se for false, vira true.
+
+```php
+   <?php
+      $ativo = false;
+      
+      if (!$ativo) {
+         echo "Usuário inativo"; // Esta mensagem será exibida
+      }
+      
+      $chovendo = true;
+      $naoChovendo = !$chovendo; // false
+      var_dump($naoChovendo); // bool(false)
+   ?>
 ```
 
 ### Inclusão de arquivos
@@ -1278,9 +1277,12 @@ formulario.html (ou .php):
             <input type="submit" value="Enviar">
         </form>
     </section>
-    
-    <hr>
-    
+</body>
+</html>
+```
+
+<html>    
+<body>    
     <section>
         <h2>Visualização do formulário</h2>
         <p>O formulário acima aparecerá para o usuário assim:</p>
@@ -1303,7 +1305,6 @@ formulario.html (ou .php):
     </section>
 </body>
 </html>
-```
 
 processa.php (processamento):
 ```html
@@ -1343,17 +1344,6 @@ processa.php (processamento):
 </body>
 </html>
 ```
-
-Abaixo como o formulário deve aparece para os usuários:
-<form>
-    <label for="exemplo_nome">Nome: </label>
-    <input type="text" id="exemplo_nome" placeholder="Digite seu nome">
-    <br><br>
-    <label for="exemplo_sobrenome">Sobrenome: </label>
-    <input type="text" id="exemplo_sobrenome" placeholder="Digite seu sobrenome">
-    <br><br>
-    <input type="submit" value="Enviar">
-</form>
 
 
 
